@@ -1,4 +1,18 @@
+<script context='module'>
+		import client, { FRONTPAGE } from '../qlClient';
+		import marked from 'marked';
+
+		export async function preload({params, query}) {
+                const results = await client.query({
+                        query: FRONTPAGE
+				})
+				// console.log(JSON.stringify(results.data.frontPage, null, 2))
+                return {page: results.data.frontPage}
+        }
+</script>
 <script>
+	export let page;
+	export let _marked = marked;
 </script>
 
 <style>
@@ -35,14 +49,10 @@
 	}
 </style>
 
-<svelte:head>
-	<title>Sapper project template</title>
-</svelte:head>
+<p>TODO sanitize HTML</p>
+<h1>{page.header}</h1>
 
-<h1>Great success!</h1>
-
-<figure>
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+{#each page.info as section}
+  <h2>{section.header}</h2>
+  <p>{@html _marked(section.body)}</p>
+{/each}
