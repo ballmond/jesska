@@ -32,6 +32,7 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode),
 				'process.env.CMS_BASE_URL': JSON.stringify(process.env.CMS_BASE_URL),
 				'process.env.CMS_GRAPHQL_ENDPOINT': JSON.stringify(process.env.CMS_GRAPHQL_ENDPOINT),
+				'process.env.UTIL_API_ENDPOINT': JSON.stringify(process.env.UTIL_API_ENDPOINT),
 			}),
 			svelte({
 				compilerOptions: {

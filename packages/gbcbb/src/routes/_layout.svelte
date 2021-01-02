@@ -5,7 +5,7 @@
 			const results = await client.query({
 					query: SITE_SETTINGS
 			})
-			console.log(JSON.stringify(results.data, null, 2))
+			// console.log(JSON.stringify(results.data, null, 2))
 			return {page: results.data.siteSetting}
 	}
 </script>

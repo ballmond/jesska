@@ -5,7 +5,7 @@
   "scripts": {
     "build": "lerna run build --parallel",
     "build-web": "lerna bootstrap && (cd packages/gbcbb && npm run export)",
-    "develop": "lerna run dev --parallel",
+    "develop": "lerna run develop --parallel",
     "format": "lerna run format",
     "lint": "lerna run lint",
     "postinstall": "lerna bootstrap",
@@ -20,6 +20,8 @@
     "lerna": "^3.22.1"
   },
   "dependencies": {
-    "marked": "^1.2.7"
+    "marked": "^1.2.7",
+    "node-fetch": "^2.6.1",
+    "sanitize-html": "^2.3.0"
   }
 }

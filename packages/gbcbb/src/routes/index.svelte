@@ -1,18 +1,18 @@
 <script context='module'>
 		import client, { FRONTPAGE } from '../qlClient';
-		import marked from 'marked';
 
 		export async function preload({params, query}) {
-                const results = await client.query({
-                        query: FRONTPAGE
-				})
-				// console.log(JSON.stringify(results.data.frontPage, null, 2))
-                return {page: results.data.frontPage}
+			const results = await client.query({
+					query: FRONTPAGE
+			})
+			// console.log(JSON.stringify(results.data.frontPage, null, 2))
+			return {page: results.data.frontPage}
         }
 </script>
 <script>
+	import BlockText from '../components/BlockText.svelte';
 	export let page;
-	export let _marked = marked;
+
 </script>
 
 <style>
@@ -54,5 +54,5 @@
 
 {#each page.info as section}
   <h2>{section.header}</h2>
-  <p>{@html _marked(section.body)}</p>
+  <BlockText text={section.body}/>
 {/each}
