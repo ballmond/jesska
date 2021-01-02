@@ -3,15 +3,18 @@
   "description": "TODO",
   "version": "0.0.1",
   "scripts": {
-    "dev": "sapper dev",
+    "develop": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.9",
     "compression": "^1.7.1",
+    "graphql": "^15.4.0",
     "polka": "next",
-    "sirv": "^1.0.0"
+    "sirv": "^1.0.0",
+    "svelte-apollo": "^0.4.0"
   },
   "devDependencies": {
     "sapper": "^0.28.0",

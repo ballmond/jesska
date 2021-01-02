@@ -8,6 +8,9 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -25,7 +28,10 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
+				'process.env.NODE_ENV': JSON.stringify(mode),
+				'process.env.CMS_BASE_URL': JSON.stringify(process.env.CMS_BASE_URL),
+				'process.env.CMS_GRAPHQL_ENDPOINT': JSON.stringify(process.env.CMS_GRAPHQL_ENDPOINT),
+				'process.env.UTIL_API_ENDPOINT': JSON.stringify(process.env.UTIL_API_ENDPOINT),
 			}),
 			svelte({
 				compilerOptions: {
@@ -39,7 +45,8 @@ export default {
 			}),
 			resolve({
 				browser: true,
-				dedupe: ['svelte']
+				dedupe: ['svelte'],
+				preferBuiltins: false,
 			}),
 			commonjs(),
 
