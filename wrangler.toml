@@ -1,0 +1,6 @@
+name = "api-public"
+type = "webpack"
+account_id = "0345436834509d73f157081faa932aa8"
+workers_dev = true
+route = ""
+zone_id = "d2975b7feaece7ff796d0c83bd3167bf"
